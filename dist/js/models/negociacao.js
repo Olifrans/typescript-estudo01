@@ -9,7 +9,6 @@ export class Negociacao {
     this.#valor = valor;
   }
 
-
   get data() {
     return this.#data;
   }
