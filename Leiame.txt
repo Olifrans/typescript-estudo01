@@ -10,16 +10,48 @@ npm run server
 
 
 
-Nesta aula, aprendemos:
-Introdução ao projeto e sua estrutura
-Um pouco sobre módulos do ECMASCRIPT
-Modelagem de uma Negociação em Javascript
-Buracos em nossa modelagem por limitações da linguagem Javascript
-
-
 
 
 -->  Instalação do  compilador TypeScript.
 https://www.npmjs.com/package/typescript
 npm i typescript
 npm i typescript --save-dev
+
+
+
+-->  Configurando o  compilador TypeScript.
+Na pasta raiz criar o arquivo tsconfig.json
+Inserir no arquivo as:
+
+{
+    "compilerOptions": {
+        "outDir": "dist/js",
+        "target": "ES6"
+        "noEmitOnError": true --> não gera o js se houver erro no typescript
+    },
+    "include": [
+        "app/**/*"
+    ]
+}
+
+-->  Em seguida no  package.json para o node ler tsconfig.json
+"compile": "tsc"
+
+
+
+-->  Inicializar  o "compile": "tsc"
+npm run compile
+
+
+--> Automatizando da  Inicializaçao do "compile": "tsc"
+no  package.json adicionar a linha:
+"watch": "tsc -w"
+
+
+-->  Inicializar  o "compile": "tsc" automatizado
+npm run watch
+
+-->  Inicializar  o "compile": "tsc" e o Servidor-Browsersync simultaneamente
+ "start": "concurrently \"npm run watch\" \"npm run server\"",
+
+ npm run start
