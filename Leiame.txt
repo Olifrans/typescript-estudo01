@@ -1,0 +1,9 @@
+
+
+--> Instalar os pacote NPM
+npm install
+
+
+
+-->  Inicializar  o "server": "lite-server --baseDir=dist"
+npm run server
