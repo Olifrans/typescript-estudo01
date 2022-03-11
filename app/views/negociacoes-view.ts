@@ -1,12 +1,8 @@
 import { Negociacoes } from "../models/negociacoes.js";
+import { View } from "./view.js";
 
 
-export class NegociacoesWiew {
-
-    private elemento: HTMLElement;
-    constructor(seletor: string){
-        this.elemento = document.querySelector(seletor);
-    }
+export class NegociacoesWiew extends View<Negociacoes> {
 
     //declaração do template na view
     template(model: Negociacoes): string {
@@ -35,12 +31,4 @@ export class NegociacoesWiew {
         </table>        
         `;
     }
-
-    //renderiza template através do elemento do construtor
-    update(model: Negociacoes): void {
-        const template = this.template(model);
-        console.log(template)
-        this.elemento.innerHTML = template;
-    }
-
 }
