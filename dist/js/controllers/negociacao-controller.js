@@ -1,10 +1,12 @@
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { MensagemWiew } from "../views/mensagem-view.js";
 import { NegociacoesWiew } from '../views/negociacoes-view.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes;
         this.negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
+        this.mensagemWiew = new MensagemWiew('#mensagemWiew');
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
@@ -14,7 +16,7 @@ export class NegociacaoController {
         const negociacao = this.criarNegociacao();
         this.negociacoes.adicionar(negociacao);
         this.negociacoesWiew.update(this.negociacoes);
-        //console.log(this.negociacoes.lista());  
+        this.mensagemWiew.update('Negociação adicionada com sucesso');
         this.limparFormulario();
     }
     criarNegociacao() {
@@ -29,5 +31,6 @@ export class NegociacaoController {
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+        //this.mensagemWiew.update = '';
     }
 }

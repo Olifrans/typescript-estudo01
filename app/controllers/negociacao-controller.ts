@@ -1,5 +1,6 @@
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { MensagemWiew } from "../views/mensagem-view.js";
 import { NegociacoesWiew } from '../views/negociacoes-view.js';
 
 
@@ -10,6 +11,7 @@ export class NegociacaoController {
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes;
     private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
+    private mensagemWiew = new MensagemWiew('#mensagemWiew');
 
     constructor() {
         this.inputData = document.querySelector('#data');
@@ -22,14 +24,11 @@ export class NegociacaoController {
     adciona(): void {
         const negociacao = this.criarNegociacao();
         this.negociacoes.adicionar(negociacao);
-
-
         this.negociacoesWiew.update(this.negociacoes);
-
-        //console.log(this.negociacoes.lista());  
-        
-        
+        this.mensagemWiew.update('Negociação adicionada com sucesso');   
+      
         this.limparFormulario();
+        
     }
 
     criarNegociacao(): Negociacao {
@@ -45,5 +44,6 @@ export class NegociacaoController {
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+        //this.mensagemWiew.update = '';
     }
 }
