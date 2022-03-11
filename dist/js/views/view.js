@@ -7,8 +7,4 @@ export class View {
         const template = this.template(model);
         this.elemento.innerHTML = template;
     }
-    //declaração do template na view
-    template(model) {
-        throw Error('Classe filha precisa implementar template ou metodo teplate');
-    }
 }
