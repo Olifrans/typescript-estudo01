@@ -1,5 +1,6 @@
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { NegociacoesWiew } from '../views/negociacoes-view.js';
 
 
 export class NegociacaoController {
@@ -8,23 +9,26 @@ export class NegociacaoController {
     private inputQuantidade: HTMLInputElement;
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes;
+    private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
 
     constructor() {
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
+
+        this.negociacoesWiew.update(this.negociacoes);
     }
 
     adciona(): void {
         const negociacao = this.criarNegociacao();
-
-        negociacao.data.setDate(12);//testando o acesso na força bruta
-
         this.negociacoes.adicionar(negociacao);
 
-        //this.negociacoes.lista().pop(); //testando o acesso na força bruta
 
-        console.log(this.negociacoes.lista());        
+        this.negociacoesWiew.update(this.negociacoes);
+
+        //console.log(this.negociacoes.lista());  
+        
+        
         this.limparFormulario();
     }
 

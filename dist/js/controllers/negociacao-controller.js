@@ -1,18 +1,20 @@
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
+import { NegociacoesWiew } from '../views/negociacoes-view.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes;
+        this.negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
+        this.negociacoesWiew.update(this.negociacoes);
     }
     adciona() {
         const negociacao = this.criarNegociacao();
-        negociacao.data.setDate(12); //testando o acesso na força bruta
         this.negociacoes.adicionar(negociacao);
-        //this.negociacoes.lista().pop(); //testando o acesso na força bruta
-        console.log(this.negociacoes.lista());
+        this.negociacoesWiew.update(this.negociacoes);
+        //console.log(this.negociacoes.lista());  
         this.limparFormulario();
     }
     criarNegociacao() {
