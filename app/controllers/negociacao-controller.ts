@@ -17,6 +17,9 @@ export class NegociacaoController {
 
     adciona(): void {
         const negociacao = this.criarNegociacao();
+
+        negociacao.data.setDate(12);//testando o acesso na força bruta
+
         this.negociacoes.adicionar(negociacao);
 
         //this.negociacoes.lista().pop(); //testando o acesso na força bruta
