@@ -17,12 +17,10 @@ export class NegociacaoController {
 
     adciona(): void {
         const negociacao = this.criarNegociacao();
+        this.negociacoes.adicionar(negociacao);
 
-        this.negociacoes.adicionar(negociacao) 
-
-        this.negociacoes.lista().pop();
         console.log(this.negociacoes.lista());
-
+        
         this.limparFormulario();
     }
 
