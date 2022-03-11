@@ -11,6 +11,7 @@
     "compile": "tsc",
     "watch": "tsc -w"
     
+    
   },
   "author": "olifrans",
   "license": "ISC",

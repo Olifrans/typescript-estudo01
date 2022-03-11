@@ -55,3 +55,18 @@ npm run watch
  "start": "concurrently \"npm run watch\" \"npm run server\"",
 
  npm run start
+
+
+ Obs: Configurando o copilador para não adotar o tipo Any implicitamente, exceto voce queira
+r o arquivo tsconfig.json
+{
+    "compilerOptions": {
+        "outDir": "dist/js",
+        "target": "ES6",
+        "noEmitOnError": true
+        "noImplicitAny": true  ---> este aqui
+    },
+    "include": [
+        "app/**/*"
+    ]
+}
