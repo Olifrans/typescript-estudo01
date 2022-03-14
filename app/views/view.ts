@@ -3,7 +3,7 @@ export abstract class View<T> {
     protected elemento: HTMLElement;
 
     private escapar = false;
-
+    
     constructor(seletor: string, escapar?: boolean) {
 
         const elemento = document.querySelector(seletor);
@@ -26,8 +26,6 @@ export abstract class View<T> {
             template = template
                 .replace(/<script>[\s\S]*?<\/script>/, '')
         }
-
-
         this.elemento.innerHTML = template;
     }
 

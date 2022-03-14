@@ -22,5 +22,4 @@ export class Negociacao {
     const valor = parseFloat(valorString);
     return new Negociacao(date, quantidade, valor);
   }
-
 }

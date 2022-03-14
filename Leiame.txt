@@ -1,23 +1,14 @@
 
-
 --> Instalar os pacote NPM
 npm install
 
-
-
 -->  Inicializar  o "server": "lite-server --baseDir=dist"
 npm run server
-
-
-
-
 
 -->  Instalação do  compilador TypeScript.
 https://www.npmjs.com/package/typescript
 npm i typescript
 npm i typescript --save-dev
-
-
 
 -->  Configurando o  compilador TypeScript.
 Na pasta raiz criar o arquivo tsconfig.json
@@ -36,7 +27,6 @@ Inserir no arquivo as:
 
 -->  Em seguida no  package.json para o node ler tsconfig.json
 "compile": "tsc"
-
 
 
 -->  Inicializar  o "compile": "tsc"

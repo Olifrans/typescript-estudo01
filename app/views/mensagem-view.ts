@@ -1,7 +1,6 @@
 import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 
-
 export class MensagemWiew extends View<string> {
 
     //declaração do template na view
