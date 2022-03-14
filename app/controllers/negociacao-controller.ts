@@ -11,8 +11,9 @@ export class NegociacaoController {
     private inputQuantidade: HTMLInputElement;
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes;
-    private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
+    private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew', true);
     private mensagemWiew = new MensagemWiew('#mensagemWiew');
+
 
 
     constructor() {
