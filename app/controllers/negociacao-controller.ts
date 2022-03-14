@@ -13,20 +13,25 @@ export class NegociacaoController {
     private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
     private mensagemWiew = new MensagemWiew('#mensagemWiew');
 
+
+
+
     constructor() {
         this.inputData = document.querySelector('#data');
+
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
 
         this.negociacoesWiew.update(this.negociacoes);
     }
 
+
+
     adciona(): void {
         const negociacao = this.criarNegociacao();
         this.negociacoes.adicionar(negociacao);
         this.negociacoesWiew.update(this.negociacoes);
-        this.mensagemWiew.update('Negociação adicionada com sucesso');   
-      
+        this.mensagemWiew.update('Negociação adicionada com sucesso');
         this.limparFormulario();
         
     }

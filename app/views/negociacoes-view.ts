@@ -1,7 +1,6 @@
 import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 
-
 export class NegociacoesWiew extends View<Negociacoes> {
 
     //declaração do template na view
@@ -25,8 +24,6 @@ export class NegociacoesWiew extends View<Negociacoes> {
                     </tr>                    
                     `;
                 }).join('')}
-
-
             </tbody>      
         </table>        
         `;

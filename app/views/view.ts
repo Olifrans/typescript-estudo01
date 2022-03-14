@@ -13,5 +13,5 @@ export abstract class View<T> {
     }
 
     //metodo abstract, é reponsabilidade da class filha fazer a implementação    
-    abstract template(model: T): string;
+    protected abstract template(model: T): string;
 }

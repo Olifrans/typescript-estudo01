@@ -21,8 +21,6 @@ export class NegociacoesWiew extends View {
                     </tr>                    
                     `;
         }).join('')}
-
-
             </tbody>      
         </table>        
         `;
