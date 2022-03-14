@@ -1,14 +1,15 @@
+import { DiasDaSemana } from "../enums/dias-da-semana.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { MensagemWiew } from "../views/mensagem-view.js";
 import { NegociacoesWiew } from '../views/negociacoes-view.js';
 export class NegociacaoController {
+    // private readonly SABADO = 6;
+    // private readonly DOMINGO = 0;
     constructor() {
         this.negociacoes = new Negociacoes;
         this.negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
         this.mensagemWiew = new MensagemWiew('#mensagemWiew');
-        this.SABADO = 6;
-        this.DOMINGO = 0;
         this.inputData = document.querySelector('#data');
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
@@ -43,6 +44,7 @@ export class NegociacaoController {
         this.mensagemWiew.update('Negociação adicionada com sucesso');
     }
     ehDiaUtil(data) {
-        return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO;
+        return data.getDay() > DiasDaSemana.DOMINGO
+            && data.getDay() < DiasDaSemana.SABADO;
     }
 }
