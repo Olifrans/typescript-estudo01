@@ -7,7 +7,6 @@ export class Negociacao {
     get valume() {
         return this.quantidade * this.valor;
     }
-    //Programação defensiva
     get data() {
         const data = new Date(this._data.getTime());
         return data;

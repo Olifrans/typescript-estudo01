@@ -6,9 +6,7 @@ export class View {
             this.escapar = escapar;
         }
     }
-    //renderiza template através do elemento do construtor
     update(model) {
-        //const template = this.template(model);
         let template = this.template(model);
         if (this.escapar) {
             template = template

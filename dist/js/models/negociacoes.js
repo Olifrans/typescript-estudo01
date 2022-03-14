@@ -1,12 +1,10 @@
 export class Negociacoes {
     constructor() {
-        //private negociacoes: Array<Negociacao> = [];
-        this.negociacoes = []; //mais simplificado
+        this.negociacoes = [];
     }
     adicionar(negociaco) {
         this.negociacoes.push(negociaco);
     }
-    //lista(): ReadonlyArray<Negociacao> {
     lista() {
         return this.negociacoes;
     }
