@@ -25,21 +25,14 @@ export class NegociacaoController {
         this.negociacoesWiew.update(this.negociacoes);
     }
 
-
-
-    adciona(): void {
+    public adciona(): void {
         const negociacao = this.criarNegociacao();
         this.negociacoes.adicionar(negociacao);
-        this.negociacoesWiew.update(this.negociacoes);
-
-        //this.negociacoesWiew.
-
-        this.mensagemWiew.update('Negociação adicionada com sucesso');
         this.limparFormulario();
-        
+        this.atualizaView();
     }
 
-    criarNegociacao(): Negociacao {
+    private criarNegociacao(): Negociacao {
         const expRegular = /-/g;
         const date = new Date(this.inputData.value.replace(expRegular, ','));
         const quantidade = parseInt(this.inputQuantidade.value);
@@ -47,10 +40,15 @@ export class NegociacaoController {
         return new Negociacao(date, quantidade, valor);
     }
 
-    limparFormulario(): void {
+    private limparFormulario(): void {
         this.inputData.value = '';
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+    }
+
+    private atualizaView(): void {
+        this.negociacoesWiew.update(this.negociacoes);
+        this.mensagemWiew.update('Negociação adicionada com sucesso');
     }
 }

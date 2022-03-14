@@ -7,7 +7,7 @@ export abstract class View<T> {
     }
 
     //renderiza template através do elemento do construtor
-    update(model: T): void {
+    public update(model: T): void {
         const template = this.template(model);
         this.elemento.innerHTML = template;
     }
