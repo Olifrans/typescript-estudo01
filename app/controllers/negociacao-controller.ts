@@ -13,24 +13,33 @@ export class NegociacaoController {
     private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
     private mensagemWiew = new MensagemWiew('#mensagemWiew');
 
+    private readonly SABADO = 6;
+    private readonly DOMINGO = 0;
+
 
 
 
     constructor() {
         this.inputData = document.querySelector('#data');
-
         this.inputQuantidade = document.querySelector('#quantidade');
         this.inputValor = document.querySelector('#valor');
-
         this.negociacoesWiew.update(this.negociacoes);
     }
 
+
     public adciona(): void {
         const negociacao = this.criarNegociacao();
+        if (!this.ehDiaUtil(negociacao.data)) {
+            this.mensagemWiew
+                .update("Atenção! Negociações só podem ser realizadas, apenas em dias úteis");
+            return;
+        }
+
         this.negociacoes.adicionar(negociacao);
         this.limparFormulario();
         this.atualizaView();
     }
+
 
     private criarNegociacao(): Negociacao {
         const expRegular = /-/g;
@@ -51,4 +60,11 @@ export class NegociacaoController {
         this.negociacoesWiew.update(this.negociacoes);
         this.mensagemWiew.update('Negociação adicionada com sucesso');
     }
+
+    private ehDiaUtil(data: Date) {
+        return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO;
+    }
+
+
+
 }
