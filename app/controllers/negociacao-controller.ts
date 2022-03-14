@@ -31,6 +31,9 @@ export class NegociacaoController {
         const negociacao = this.criarNegociacao();
         this.negociacoes.adicionar(negociacao);
         this.negociacoesWiew.update(this.negociacoes);
+
+        //this.negociacoesWiew.
+
         this.mensagemWiew.update('Negociação adicionada com sucesso');
         this.limparFormulario();
         
