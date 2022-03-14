@@ -1,6 +1,5 @@
 
 
-
 export enum DiasDaSemana {
     DOMINGO = 0,
     SEGUNDA = 1,

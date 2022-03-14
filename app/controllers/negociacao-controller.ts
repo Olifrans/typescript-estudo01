@@ -14,11 +14,6 @@ export class NegociacaoController {
     private negociacoesWiew = new NegociacoesWiew('#negociacoesWiew');
     private mensagemWiew = new MensagemWiew('#mensagemWiew');
 
-    // private readonly SABADO = 6;
-    // private readonly DOMINGO = 0;
-
-
-
 
     constructor() {
         this.inputData = document.querySelector('#data');
@@ -29,7 +24,11 @@ export class NegociacaoController {
 
 
     public adciona(): void {
-        const negociacao = this.criarNegociacao();
+        const negociacao = Negociacao.criaDe(
+            this.inputData.value,
+            this.inputQuantidade.value,
+            this.inputValor.value,
+        );
         if (!this.ehDiaUtil(negociacao.data)) {
             this.mensagemWiew
                 .update("Atenção! Negociações só podem ser realizadas, apenas em dias úteis");
@@ -39,15 +38,6 @@ export class NegociacaoController {
         this.negociacoes.adicionar(negociacao);
         this.limparFormulario();
         this.atualizaView();
-    }
-
-
-    private criarNegociacao(): Negociacao {
-        const expRegular = /-/g;
-        const date = new Date(this.inputData.value.replace(expRegular, ','));
-        const quantidade = parseInt(this.inputQuantidade.value);
-        const valor = parseFloat(this.inputValor.value);
-        return new Negociacao(date, quantidade, valor);
     }
 
     private limparFormulario(): void {
@@ -66,11 +56,4 @@ export class NegociacaoController {
         return data.getDay() > DiasDaSemana.DOMINGO
             && data.getDay() < DiasDaSemana.SABADO;
     }
-
-    // private ehDiaUtil(data: Date) {
-    //     return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO;
-    // }
-
-
-
 }
